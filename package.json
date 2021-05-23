@@ -1,0 +1,15 @@
+{
+  "name": "counter",
+  "version": "1.0.0",
+  "description": "simple page counter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hakan Dilek",
+  "license": "MIT",
+  "dependencies": {
+    "firebase-tools": "^9.11.0",
+    "global": "^4.4.0"
+  }
+}
