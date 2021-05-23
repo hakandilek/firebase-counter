@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>simple counter</title>
+    <style>
+        span {
+            display: inline-block;
+            padding: 6px 6px 4px;
+            border-radius: 3px;
+            border-color: cadetblue;
+            border-width: 1px;
+            border-style: solid;
+            background: #b09dc4;
+            margin-right: 1px;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: beige;
+            color: cadetblue;
+        }
+        #counter {
+            text-align: center;
+            width: 50%;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="counter"></div>
+    <script>
+        "use strict";
+
+        const url = "https://us-central1-playground-hd.cloudfunctions.net/counter";
+        function display(count) {
+            const txt = count + "";
+            var inner = "";
+            for (var i = 0; i < txt.length; i++) {
+                inner += `<span>${txt.charAt(i)}</span>`;
+            }
+            counter.innerHTML = inner;
+        }
+
+        display("....")
+
+        fetch(url)
+            .then(r => r.ok? r.json() : undefined)
+            .then(c => {
+                display(("0000" + c.count).slice(-4));
+            })
+            .catch(err => {
+                console.log(`Error: ${err}`);
+            })
+
+    </script>
+</body>
+</html>
